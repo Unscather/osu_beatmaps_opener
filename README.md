@@ -2,7 +2,7 @@
 This program can be used to automatically open .osz files without needing to open osu!. This may be practical for McOsu!, for example.
 
 ## Steps
-1. Locate your osu! songs folder, and copy the full directory (something like C:\Users\<YourUsername>\AppData\Local\osu!).
+1. Locate your osu! songs folder, and copy the full directory (something like C:\Users\\\<YourUsername>\AppData\Local\osu!).
 2. Run the executable, and paste the full directory when prompted.
 3. Verify your files.
 
