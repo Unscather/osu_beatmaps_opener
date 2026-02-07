@@ -19,6 +19,7 @@ files = [file for file in folder_path.iterdir() if file.is_file() and file.suffi
 zip_file_count = len(files)
 
 # Extract contents to new folders
+files_skipped_count = 0
 for file in files:
     new_folder_path = f'{folder_path}/{file.stem}'
     try:
@@ -27,4 +28,13 @@ for file in files:
             zip_ref.extractall(new_folder_path)
         os.remove(file)
     except OSError as e:
+        # Convert file back to .osz
+        file.rename(file.with_suffix('.osz'))
+        zip_file_count -= 1
+        files_skipped_count += 1
         print(e)
+
+print(f'\n.osz files found: {osz_file_count}')
+print(f'.zip files extracted: {zip_file_count}')
+print(f'.zip files skipped: {files_skipped_count}')
+input('\nPress any key to close.')
